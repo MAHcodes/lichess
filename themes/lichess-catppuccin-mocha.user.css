@@ -123,6 +123,8 @@
             color: var(--dimmer-text) !important;
         }
 
+        .site-title:hover a,
+        .site-title:hover span,
         .site_notification:hover i,
         .lobby__support i::before,
         .lobby__support__text,
@@ -134,18 +136,30 @@
             color: var(--main-color) !important;
         }
 
-        #notify-app .browser-notification,
         .tabs-horiz span::after,
         .lobby__support a:hover {
             background: var(--main-color) !important;
         }
 
-        #notify-app .browser-notification,
         .lobby__support a:hover .lobby__support__text,
         .lobby__support a:hover i::before {
             color: var(--main-background) !important;
         }
+        
+        
+        #dasher_app .langs .current,
+        #dasher_app .links a:hover,
+        #dasher_app .links button:hover,
+        #dasher_app .subs .sub:hover,
+        #topnav div a:hover,
+        #notify-app .browser-notification,
+        #topnav div a:hover,
+        #notify-app .browser-notification {
+            background: var(--main-color) !important;
+            color: var(--main-background) !important;
+        }
 
+        #friend_box,
         .hooks__list tr.join td,
         .upt__info,
         .lobby__box td,
@@ -162,12 +176,17 @@
         .site_notification:hover,
         .lobby__box tr:nth-child(2n) {
             background-color: var(--main-background) !important;
+        }
+        
+        .site_notification:hover,
+        .lobby__box tr:nth-child(2n) {
             color: var(--main-text) !important;
         }
 
+        .site-title a,
+        .site-title span,
         .user-link .line,
         .timeline .entry a,
-        .lobby__about a,
         .timeline,
         .lobby__streams .stream,
         .lobby__counters,
@@ -175,6 +194,7 @@
             color: var(--dimmer-text) !important;
         }
 
+        .lobby__about a,
         .site-buttons .dropdown a,
         .site-buttons .dropdown button,
         .site-buttons .dropdown,
@@ -194,6 +214,8 @@
             }
         }
 
+        #topnav div,
+        #topnav.hover section:hover > a, #topnav section:active > a,
         .site-buttons .dropdown,
         .site-buttons .shown .toggle,
         #powerTip,
@@ -207,6 +229,7 @@
         .tour-spotlight,
         .btn-rack__btn,
         .btn-rack form,
+        #friend_box,
         #friend_box .friend_box_title,
         .button.button-metal,
         .button.button-empty:not(.disabled):hover,
@@ -215,6 +238,13 @@
             background: var(--hover-background) !important;
         }
 
+        #topnav div,
+        #topnav.hover section:hover > a, #topnav section:active > a {
+            border-color: var(--main-color) !important;
+        }
+        
+        
+       #dasher_app .links a:hover::before,
         .hook__filters,
         .hooks__list tr.join td {
             background: transparent !important;
@@ -232,20 +262,16 @@
             color: var(--green) !important;
         }
 
+       #dasher_app .links a:not(.is-green):hover::before,
         #dasher_app .head:hover::before,
         #dasher_app .sub:hover::before {
             color: var(--main-background) !important;
         }
 
-        signal > i,
-        #dasher_app .langs .current,
-        #dasher_app .links a:hover,
-        #dasher_app .links a:hover::before,
-        #dasher_app .links button:hover,
-        #dasher_app .subs .sub:hover {
-            background: var(--green) !important;
-            color: var(--main-background) !important;
+        signal > i {
+            color: var(--green) !important;
         }
+        signal.q1 > i,
         #reconnecting {
             background: var(--red) !important;
         }
