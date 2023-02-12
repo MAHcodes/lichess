@@ -1,0 +1,195 @@
+/* ==UserStyle==
+@name           lichess catppuccin mocha
+@namespace      github.com/catppuccin/lichess
+@version        0.0.1
+@updateURL https://github.com/catppuccin/lichess/raw/main/themes/lichess-catppuccin-mocha.user.css
+@description    Soothing pastel theme for lichess
+@author         MAHcodes (https://github.com/mahcodes/)
+@license GNU-V3.0
+
+@preprocessor stylus
+
+@var select stylus-deepdark-style "Main color" [
+	"Green",
+	"Flamingo",
+	"Mauve",
+	"Pink",
+	"Lavender",
+	"Red",
+	"Peach",
+	"Yellow",
+	"Teal",
+	"Blue",
+	"Sky",
+    "Maroon",
+    "Sapphire",
+    "Rosewater",
+	"Custom"
+]
+
+@var color mainColor "Custom main color" "#89B4FA"
+@var color mainBackground "Custom main background" "#1E1E2E"
+@var color secondBackground "Custom second background" "#181825"
+@var color playerBackground "Custom player background" "#11111B"
+@var color hoverBackground "Custom hover background" "#313244"
+@var color mainText "Custom main text" "#CDD6F4"
+@var color dimmerText "Custom second text" "#9399B2"
+@var color colorShadow "Custom shadow color" "rgba(56, 60, 74, .3)"
+==/UserStyle== */
+
+@-moz-document domain("lichess.org") {
+  :root {
+    --main-background: #1e1e2e;
+    --second-background: #181825;
+    --player-background: #11111b;
+    --hover-background: #313244;
+    --main-text: #cdd6f4;
+    --dimmer-text: #9399b2;
+    --shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+
+    if stylus-deepdark-style=="Green" {
+      --main-color: #a6e3a1;
+    }
+    else if stylus-deepdark-style=="Lavender" {
+      --main-color: #b4befe;
+    }
+
+    else if stylus-deepdark-style=="Flamingo" {
+      --main-color: #f2cdcd;
+    }
+
+    else if stylus-deepdark-style=="Mauve" {
+      --main-color: #cba6f7;
+    }
+
+    else if stylus-deepdark-style=="Pink" {
+      --main-color: #f5c2e7;
+    }
+
+    else if stylus-deepdark-style=="Red" {
+      --main-color: #f38ba8;
+    }
+
+    else if stylus-deepdark-style=="Peach" {
+      --main-color: #fab387;
+    }
+
+    else if stylus-deepdark-style=="Yellow" {
+      --main-color: #f9e2af;
+    }
+
+    else if stylus-deepdark-style=="Teal" {
+      --main-color: #94e2d5;
+    }
+    else if stylus-deepdark-style=="Blue" {
+      --main-color: #89b4fa;
+    }
+    else if stylus-deepdark-style=="Sky" {
+      --main-color: #89dceb;
+    }
+    else if stylus-deepdark-style=="Maroon" {
+      --main-color: #eba0ac;
+    }
+    else if stylus-deepdark-style=="Sapphire" {
+      --main-color: #74c7ec;
+    }
+    else if stylus-deepdark-style=="Rosewater" {
+      --main-color: #f5e0dc;
+    }
+    else if stylus-deepdark-style=="Custom" {
+      --main-color: mainColor;
+      --main-background: mainBackground;
+      --second-background: secondBackground;
+      --player-background: playerBackground;
+      --hover-background: hoverBackground;
+      --main-text: mainText;
+      --dimmer-text: dimmerText;
+      --shadow: 0 1px 0.5px colorShadow;
+    }
+
+    .lobby__box__content,
+    body {
+      background: var(--second-background) !important;
+      color: var(--dimmer-text) !important;
+    }
+
+    .lobby__support i::before,
+    .lobby__support__text,
+    .utitle,
+    .lobby__streams strong,
+    .stream.highlight strong,
+    .tabs-horiz span.active,
+    .site-title-nav__donate {
+      color: var(--main-color) !important;
+    }
+
+    .tabs-horiz span::after,
+    .lobby__support a:hover {
+      background: var(--main-color) !important;
+    }
+
+    .lobby__support a:hover .lobby__support__text,
+    .lobby__support a:hover i::before {
+      color: var(--main-background) !important;
+    }
+
+    .lobby__box td,
+    .tabs-horiz,
+    .lpools > div {
+      border-color: var(--hover-background) !important;
+    }
+
+    .lobby__app__content {
+      background-color: var(--main-background);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='-2 -2 54 54' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23181825' stroke='%23181825' stroke-linejoin='round'%0Ad='M38.956.5c-3.53.418-6.452.902-9.286 2.984C5.534 1.786-.692 18.533.68 29.364 3.493 50.214 31.918 55.785 41.329 41.7c-7.444 7.696-19.276 8.752-28.323 3.084C3.959 39.116-.506 27.392 4.683 17.567 9.873 7.742 18.996 4.535 29.03 6.405c2.43-1.418 5.225-3.22 7.655-3.187l-1.694 4.86 12.752 21.37c-.439 5.654-5.459 6.112-5.459 6.112-.574-1.47-1.634-2.942-4.842-6.036-3.207-3.094-17.465-10.177-15.788-16.207-2.001 6.967 10.311 14.152 14.04 17.663 3.73 3.51 5.426 6.04 5.795 6.756 0 0 9.392-2.504 7.838-8.927L37.4 7.171z'/%3E%3C/svg%3E%0A");
+    }
+
+    .lobby__box tr:nth-child(2n) {
+      background-color: var(--main-background) !important;
+      color: var(--main-text) !important;
+    }
+
+    .user-link .line,
+    .timeline .entry a,
+    .lobby__about a,
+    .timeline,
+    .lobby__streams .stream,
+    .lobby__counters,
+    .tabs-horiz {
+      color: var(--dimmer-text) !important;
+    }
+
+    .lobby__box td.name a,
+    .lobby__box__top .more,
+    .lobby__counters a,
+    .lobby__box .user-link,
+    .timeline a,
+    .user-link .line,
+    .lobby__streams .stream,
+    .lobby__counters,
+    .tabs-horiz,
+    .tour-spotlight {
+      color: var(--dimmer-text) !important;
+      &:hover {
+        color: var(--main-text) !important;
+      }
+    }
+
+    .ublog-post-card,
+    .lobby__box__top,
+    #hook .opponent,
+    .lobby__support a,
+    .lpools > div:hover,
+    .tour-spotlight.invert,
+    .tour-spotlight,
+    .btn-rack__btn,
+    .btn-rack form,
+    #friend_box .friend_box_title,
+    .button.button-metal,
+    .button.button-empty:not(.disabled):hover,
+    .button.button-empty.button-green:not(.disabled):hover,
+    .button.button-empty.button-red:not(.disabled):hover {
+      background: var(--hover-background) !important;
+    }
+  }
+}
