@@ -28,6 +28,7 @@
 ]
 
 @var color mainColor "Custom main color" "#89B4FA"
+@var color mainColor "Custom main color transparent" "#89B4FA30"
 @var color mainBackground "Custom main background" "#1E1E2E"
 @var color secondBackground "Custom second background" "#181825"
 @var color playerBackground "Custom player background" "#11111B"
@@ -36,160 +37,217 @@
 @var color dimmerText "Custom second text" "#9399B2"
 @var color colorShadow "Custom shadow color" "rgba(56, 60, 74, .3)"
 ==/UserStyle== */
-
 @-moz-document domain("lichess.org") {
-  :root {
-    --main-background: #1e1e2e;
-    --second-background: #181825;
-    --player-background: #11111b;
-    --hover-background: #313244;
-    --main-text: #cdd6f4;
-    --dimmer-text: #9399b2;
-    --shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+    :root {
+        --main-background: #1e1e2e;
+        --second-background: #181825;
+        --player-background: #11111b;
+        --hover-background: #313244;
+        --main-text: #cdd6f4;
+        --dimmer-text: #9399b2;
+        --shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+        --green: #a6e3a1;
+        --red: #f38ba8;
 
-    if stylus-deepdark-style=="Green" {
-      --main-color: #a6e3a1;
-    }
-    else if stylus-deepdark-style=="Lavender" {
-      --main-color: #b4befe;
-    }
+        if stylus-deepdark-style=="Green" {
+            --main-color: #a6e3a1;
+            --main-color-transparent: #a6e3a130;
+        }
+        else if stylus-deepdark-style=="Lavender" {
+            --main-color: #b4befe;
+            --main-color-transparent: #b4befe30;
+        }
+        else if stylus-deepdark-style=="Flamingo" {
+            --main-color: #f2cdcd;
+            --main-color-transparent: #f2cdcd30;
+        }
+        else if stylus-deepdark-style=="Mauve" {
+            --main-color: #cba6f7;
+            --main-color-transparent: #cba6f730;
+        }
+        else if stylus-deepdark-style=="Pink" {
+            --main-color: #f5c2e7;
+            --main-color-transparent: #f5c2e730;
+        }
+        else if stylus-deepdark-style=="Red" {
+            --main-color: #f38ba8;
+            --main-color-transparent: #f38ba8;
+        }
+        else if stylus-deepdark-style=="Peach" {
+            --main-color: #fab387;
+            --main-color-transparent: #fab38730;
+        }
+        else if stylus-deepdark-style=="Yellow" {
+            --main-color: #f9e2af;
+            --main-color-transparent: #f9e2af30;
+        }
+        else if stylus-deepdark-style=="Teal" {
+            --main-color: #94e2d5;
+            --main-color-transparent: #94e2d530;
+        }
+        else if stylus-deepdark-style=="Blue" {
+            --main-color: #89b4fa;
+            --main-color-transparent: #89b4fa30;
+        }
+        else if stylus-deepdark-style=="Sky" {
+            --main-color: #89dceb;
+            --main-color-transparent: #89dceb30;
+        }
+        else if stylus-deepdark-style=="Maroon" {
+            --main-color: #eba0ac;
+            --main-color-transparent: #eba0ac30;
+        }
+        else if stylus-deepdark-style=="Sapphire" {
+            --main-color: #74c7ec;
+            --main-color-transparent: #74c7ec30;
+        }
+        else if stylus-deepdark-style=="Rosewater" {
+            --main-color: #f5e0dc;
+            --main-color-transparent: #f5e0dc30;
+        }
+        else if stylus-deepdark-style=="Custom" {
+            --main-color: mainColor;
+            --main-color-transparent: mainColorTransparent;
+            --main-background: mainBackground;
+            --second-background: secondBackground;
+            --player-background: playerBackground;
+            --hover-background: hoverBackground;
+            --main-text: mainText;
+            --dimmer-text: dimmerText;
+            --shadow: 0 1px 0.5px colorShadow;
+        }
 
-    else if stylus-deepdark-style=="Flamingo" {
-      --main-color: #f2cdcd;
-    }
+        .lobby__box__content,
+        body {
+            background: var(--second-background) !important;
+            color: var(--dimmer-text) !important;
+        }
 
-    else if stylus-deepdark-style=="Mauve" {
-      --main-color: #cba6f7;
-    }
+        .site_notification:hover i,
+        .lobby__support i::before,
+        .lobby__support__text,
+        .utitle,
+        .lobby__streams strong,
+        .stream.highlight strong,
+        .tabs-horiz span.active,
+        .site-title-nav__donate {
+            color: var(--main-color) !important;
+        }
 
-    else if stylus-deepdark-style=="Pink" {
-      --main-color: #f5c2e7;
-    }
+        #notify-app .browser-notification,
+        .tabs-horiz span::after,
+        .lobby__support a:hover {
+            background: var(--main-color) !important;
+        }
 
-    else if stylus-deepdark-style=="Red" {
-      --main-color: #f38ba8;
-    }
+        #notify-app .browser-notification,
+        .lobby__support a:hover .lobby__support__text,
+        .lobby__support a:hover i::before {
+            color: var(--main-background) !important;
+        }
 
-    else if stylus-deepdark-style=="Peach" {
-      --main-color: #fab387;
-    }
+        .hooks__list tr.join td,
+        .upt__info,
+        .lobby__box td,
+        .tabs-horiz,
+        .lpools > div {
+            border-color: var(--hover-background) !important;
+        }
 
-    else if stylus-deepdark-style=="Yellow" {
-      --main-color: #f9e2af;
-    }
+        .lobby__app__content {
+            background-color: var(--main-background);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='-2 -2 54 54' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23181825' stroke='%23181825' stroke-linejoin='round'%0Ad='M38.956.5c-3.53.418-6.452.902-9.286 2.984C5.534 1.786-.692 18.533.68 29.364 3.493 50.214 31.918 55.785 41.329 41.7c-7.444 7.696-19.276 8.752-28.323 3.084C3.959 39.116-.506 27.392 4.683 17.567 9.873 7.742 18.996 4.535 29.03 6.405c2.43-1.418 5.225-3.22 7.655-3.187l-1.694 4.86 12.752 21.37c-.439 5.654-5.459 6.112-5.459 6.112-.574-1.47-1.634-2.942-4.842-6.036-3.207-3.094-17.465-10.177-15.788-16.207-2.001 6.967 10.311 14.152 14.04 17.663 3.73 3.51 5.426 6.04 5.795 6.756 0 0 9.392-2.504 7.838-8.927L37.4 7.171z'/%3E%3C/svg%3E%0A");
+        }
 
-    else if stylus-deepdark-style=="Teal" {
-      --main-color: #94e2d5;
-    }
-    else if stylus-deepdark-style=="Blue" {
-      --main-color: #89b4fa;
-    }
-    else if stylus-deepdark-style=="Sky" {
-      --main-color: #89dceb;
-    }
-    else if stylus-deepdark-style=="Maroon" {
-      --main-color: #eba0ac;
-    }
-    else if stylus-deepdark-style=="Sapphire" {
-      --main-color: #74c7ec;
-    }
-    else if stylus-deepdark-style=="Rosewater" {
-      --main-color: #f5e0dc;
-    }
-    else if stylus-deepdark-style=="Custom" {
-      --main-color: mainColor;
-      --main-background: mainBackground;
-      --second-background: secondBackground;
-      --player-background: playerBackground;
-      --hover-background: hoverBackground;
-      --main-text: mainText;
-      --dimmer-text: dimmerText;
-      --shadow: 0 1px 0.5px colorShadow;
-    }
+        .site_notification:hover,
+        .lobby__box tr:nth-child(2n) {
+            background-color: var(--main-background) !important;
+            color: var(--main-text) !important;
+        }
 
-    .lobby__box__content,
-    body {
-      background: var(--second-background) !important;
-      color: var(--dimmer-text) !important;
-    }
+        .user-link .line,
+        .timeline .entry a,
+        .lobby__about a,
+        .timeline,
+        .lobby__streams .stream,
+        .lobby__counters,
+        .tabs-horiz {
+            color: var(--dimmer-text) !important;
+        }
 
-    .lobby__support i::before,
-    .lobby__support__text,
-    .utitle,
-    .lobby__streams strong,
-    .stream.highlight strong,
-    .tabs-horiz span.active,
-    .site-title-nav__donate {
-      color: var(--main-color) !important;
-    }
+        .site-buttons .dropdown a,
+        .site-buttons .dropdown button,
+        .site-buttons .dropdown,
+        .site-buttons .shown .toggle,
+        .lobby__box td.name a,
+        .lobby__box__top .more,
+        .lobby__counters a,
+        .lobby__box .user-link,
+        .timeline a,
+        .user-link .line,
+        .lobby__streams .stream,
+        .lobby__counters,
+        .tour-spotlight {
+            color: var(--dimmer-text) !important;
+            &:hover {
+                color: var(--main-text) !important;
+            }
+        }
 
-    .tabs-horiz span::after,
-    .lobby__support a:hover {
-      background: var(--main-color) !important;
-    }
+        .site-buttons .dropdown,
+        .site-buttons .shown .toggle,
+        #powerTip,
+        #miniGame,
+        #miniBoard,
+        .ublog-post-card,
+        .lobby__box__top,
+        #hook .opponent,
+        .lobby__support a,
+        .tour-spotlight.invert,
+        .tour-spotlight,
+        .btn-rack__btn,
+        .btn-rack form,
+        #friend_box .friend_box_title,
+        .button.button-metal,
+        .button.button-empty:not(.disabled):hover,
+        .button.button-empty.button-green:not(.disabled):hover,
+        .button.button-empty.button-red:not(.disabled):hover {
+            background: var(--hover-background) !important;
+        }
 
-    .lobby__support a:hover .lobby__support__text,
-    .lobby__support a:hover i::before {
-      color: var(--main-background) !important;
-    }
+        .hook__filters,
+        .hooks__list tr.join td {
+            background: transparent !important;
+        }
 
-    .lobby__box td,
-    .tabs-horiz,
-    .lpools > div {
-      border-color: var(--hover-background) !important;
-    }
+        .hooks__list tr.join:hover td,
+        .lpools > div:hover {
+            background: var(--main-color-transparent) !important;
+            color: var(--main-text) !important;
+        }
 
-    .lobby__app__content {
-      background-color: var(--main-background);
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='-2 -2 54 54' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23181825' stroke='%23181825' stroke-linejoin='round'%0Ad='M38.956.5c-3.53.418-6.452.902-9.286 2.984C5.534 1.786-.692 18.533.68 29.364 3.493 50.214 31.918 55.785 41.329 41.7c-7.444 7.696-19.276 8.752-28.323 3.084C3.959 39.116-.506 27.392 4.683 17.567 9.873 7.742 18.996 4.535 29.03 6.405c2.43-1.418 5.225-3.22 7.655-3.187l-1.694 4.86 12.752 21.37c-.439 5.654-5.459 6.112-5.459 6.112-.574-1.47-1.634-2.942-4.842-6.036-3.207-3.094-17.465-10.177-15.788-16.207-2.001 6.967 10.311 14.152 14.04 17.663 3.73 3.51 5.426 6.04 5.795 6.756 0 0 9.392-2.504 7.838-8.927L37.4 7.171z'/%3E%3C/svg%3E%0A");
-    }
+        .is-green::before,
+        #dasher_app .head::before,
+        #dasher_app .sub::before {
+            color: var(--green) !important;
+        }
 
-    .lobby__box tr:nth-child(2n) {
-      background-color: var(--main-background) !important;
-      color: var(--main-text) !important;
-    }
+        #dasher_app .head:hover::before,
+        #dasher_app .sub:hover::before {
+            color: var(--main-background) !important;
+        }
 
-    .user-link .line,
-    .timeline .entry a,
-    .lobby__about a,
-    .timeline,
-    .lobby__streams .stream,
-    .lobby__counters,
-    .tabs-horiz {
-      color: var(--dimmer-text) !important;
+        signal > i,
+        #dasher_app .langs .current,
+        #dasher_app .links a:hover,
+        #dasher_app .links a:hover::before,
+        #dasher_app .links button:hover,
+        #dasher_app .subs .sub:hover {
+            background: var(--green) !important;
+            color: var(--main-background) !important;
+        }
+        #reconnecting {
+            background: var(--red) !important;
+        }
     }
-
-    .lobby__box td.name a,
-    .lobby__box__top .more,
-    .lobby__counters a,
-    .lobby__box .user-link,
-    .timeline a,
-    .user-link .line,
-    .lobby__streams .stream,
-    .lobby__counters,
-    .tabs-horiz,
-    .tour-spotlight {
-      color: var(--dimmer-text) !important;
-      &:hover {
-        color: var(--main-text) !important;
-      }
-    }
-
-    .ublog-post-card,
-    .lobby__box__top,
-    #hook .opponent,
-    .lobby__support a,
-    .lpools > div:hover,
-    .tour-spotlight.invert,
-    .tour-spotlight,
-    .btn-rack__btn,
-    .btn-rack form,
-    #friend_box .friend_box_title,
-    .button.button-metal,
-    .button.button-empty:not(.disabled):hover,
-    .button.button-empty.button-green:not(.disabled):hover,
-    .button.button-empty.button-red:not(.disabled):hover {
-      background: var(--hover-background) !important;
-    }
-  }
 }
