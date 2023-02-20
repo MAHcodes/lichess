@@ -139,6 +139,10 @@
             }
         }
 
+        .lobby__about a:hover,
+        a.user-link:hover,
+        .lobby__box td.name a:hover,
+        .timeline .entry:hover a,
         .number-menu .nm-item:hover,
         .activity section h2,
         .sub-ratings a:hover i,
@@ -284,12 +288,12 @@
             }
         }
         
+        input, textarea, select,
         #modal-wrap .close,
         .game-setup#modal-wrap .optional-config, .game-setup#modal-wrap .ratings,
         .lpools .active,
         .pv_box .pv[data-uci]:hover,
         .analyse__tools .comp-off__hint, .ceval,
-        input, textarea, select,
         .rcontrols .suggestion, .rcontrols .pending, .rcontrols .negotiation,
         .account group.radio input:checked + label,
         .number-menu--tabs .nm-item.active,
@@ -354,6 +358,7 @@
             color: var(--green) !important;
         }
 
+        .button.button-empty.button-red, .button.button-empty.button-red:hover,
         .activity .entry > i,
         .activity strong,
         .expiration,
@@ -364,6 +369,7 @@
             color: var(--main-background) !important;
         }
 
+        .user-link.online .line,
         .ceval .technology.good,
         .crosstable .win,
         good,
@@ -371,17 +377,24 @@
             color: var(--green) !important;
         }
         
+        .mchat__messages i,
+        .lobby__app .toggle:hover,
+        .lobby__app .gamesFiltered:hover,
+        .mini-game__clock.clock--run,
         .cmn-toggle:not(:checked) + label::before,
         .crosstable .loss,
         bad {
             color: var(--red) !important;
         }
         
+        .hook__filters .regular-checkbox:checked,
         .mchat__messages li.me,
         .mchat__tab input:checked {
             border-color: var(--green) !important;
         }
         
+        .button-green:not(.disabled),
+        .hook__filters .regular-checkbox:checked,
         .activity win strong,
         .expiration,
         .ceval .bar span,
@@ -392,6 +405,7 @@
             background-color: var(--green) !important;
         }
         
+        .button.button-empty.button-red, .button.button-empty.button-red:hover,
         .activity loss strong,
         .expiration.emerg,
         .cmn-toggle:not(:checked) + label,
